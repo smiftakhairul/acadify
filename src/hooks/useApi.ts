@@ -18,41 +18,43 @@ const useApi = () => {
     return formData;
   })
 
-  const facultyLogin = async (data: any) => {
+  const login = async (data: any) => {
     const body = commonFormBody();
+    body.append('role', data?.role);
     body.append('username', data?.username);
     body.append('password', data?.password);
     
-    const response = await axiosClient.apiClient('POST', '/faculty/login', body);
+    const response = await axiosClient.apiClient('POST', '/login', body);
     setIsLoggedInState(true);
     storage.setItem('authenticated', true);
     storage.setItem('_a_r_i', 'xGdhl34DKlswr11-sgGEDldGDET');
     storage.setItem('_a_e_k', 'ySdhl39DKlswr11-tgtEDldADET');
     storage.setItem('user', JSON.stringify({
       'id': 1,
-      'name': 'Test Faculty',
-      'username': 'test.faculty',
-      'email': 'test.faculty@gmail.com',
+      'name': 'Test User',
+      'username': 'test.user',
+      'email': 'test.user@gmail.com',
+      'role': data?.role,
       'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe adipisci, doloribus sed dolores velit officiis nulla earum officia ipsum, quo atque laudantium! Ea incidunt nesciunt blanditiis. Facere alias soluta quam.',
       'designation': 'Assistant Professor',
       'address': 'Maliseba, Yekaterinburg, Russia 62000',
       'phone': '+7(965)513-6436',
       'website': 'www.example.com',
-      'github': 'testfaculty',
-      'twitter': '@testfaculty',
-      'vk': 'testfaculty',
-      'facebook': 'testfaculty'
+      'github': 'testuser',
+      'twitter': '@testuser',
+      'vk': 'testuser',
+      'facebook': 'testuser'
     }));
     return null;
   }
 
-  const facultyRegister = async (data: any) => {
+  const register = async (data: any) => {
     const body = commonFormBody();
     body.append('username', data?.username);
     body.append('email', data?.email);
     body.append('password', data?.password);
     
-    const response = await axiosClient.apiClient('POST', '/faculty/register', body);
+    const response = await axiosClient.apiClient('POST', '/register', body);
     return null;
   }
 
@@ -66,8 +68,8 @@ const useApi = () => {
   }
 
   return {
-    facultyLogin,
-    facultyRegister,
+    login,
+    register,
     logout
   };
 };

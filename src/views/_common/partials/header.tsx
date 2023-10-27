@@ -3,38 +3,29 @@ import { Link, useNavigate } from "react-router-dom";
 import useStorage from "../../../hooks/useStorage";
 import useApi from "../../../hooks/useApi";
 
-type Props = {
-  type: string,
-};
-
-const Header = (props: Props) => {
+const Header = () => {
   const api = useApi();
   const storage = useStorage();
   const navigate = useNavigate();
-  const [data, setData]: any = useState({});
   const [user, setUser]: any = useState({});
 
   useEffect(() => {
-    setData({
-      logo: props.type === 'faculty' ? '/img/acadify-faculty.png' : '/img/acadify-student.png',
-      redirectLink: props.type === 'faculty' ? '/faculty/home' : '/home'
-    });
     setUser(JSON.parse(storage.getItem('user') || ''));
-  }, [props])
+  }, [])
 
   const submitLogout = () => {
     api
       .logout()
       .then(res => {
-        navigate(props.type === 'faculty' ? '/faculty/login' : '/login');
+        navigate('/login');
       });
   }
 
   return (
     <div className="dashboard-header">
       <nav className="navbar navbar-expand-lg bg-white fixed-top">
-        <Link className="navbar-brand" to={data?.redirectLink}>
-          <img src={data?.logo} alt="" width={150} />
+        <Link className="navbar-brand" to="/home">
+          <img src="/img/acadify.png" alt="" width={150} />
         </Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -54,7 +45,7 @@ const Header = (props: Props) => {
                 <div className="nav-user-info">
                   <h5 className="mb-0 text-white nav-user-name">{user?.name}</h5>
                 </div>
-                <Link className="dropdown-item" to={props.type === 'faculty' ? '/faculty/profile' : '/profile'}><i className="fas fa-user mr-2"></i>Profile</Link>
+                <Link className="dropdown-item" to="/profile"><i className="fas fa-user mr-2"></i>Profile</Link>
                 <a className="dropdown-item" href="#" onClick={() => submitLogout()}><i className="fas fa-power-off mr-2"></i>Logout</a>
               </div>
             </li>

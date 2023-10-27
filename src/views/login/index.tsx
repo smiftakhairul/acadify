@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
-import { prepareFormFields } from "../../../utils/helpers/common";
-import useApi from "../../../hooks/useApi";
-import useNotification from "../../../hooks/useNotification";
+import useApi from "../../hooks/useApi";
+import useNotification from "../../hooks/useNotification";
+import { prepareFormFields } from "../../utils/helpers/common";
 
 const Login = () => {
   const api = useApi();
@@ -10,12 +10,12 @@ const Login = () => {
 
   const submitLogin = (e: any) => {
     e.preventDefault();
-    const formData = prepareFormFields('facultyLoginForm');
+    const formData = prepareFormFields('loginForm');
     api
-      .facultyLogin(formData)
+      .login(formData)
       .then(res => {
         notification.success('Successfully logged in!');
-        navigate('/faculty/home');
+        navigate('/home');
       });
   }
 
@@ -25,14 +25,21 @@ const Login = () => {
         <div className="card">
           <div className="card-header text-center">
             <a href="#" onClick={(e) => e.preventDefault()}>
-              <img className="logo-img" src="/img/acadify-faculty.png" alt="logo" width={280} />
+              <img className="logo-img" src="/img/acadify.png" alt="logo" width={180} />
             </a>
             <span className="splash-description">Please enter your information.</span>
           </div>
           <div className="card-body">
-            <form id="facultyLoginForm" onSubmit={(e) => submitLogin(e)}>
+            <form id="loginForm" onSubmit={(e) => submitLogin(e)}>
               <div className="form-group">
                 <input type="text" name="username" className="form-control form-control-lg" id="username" placeholder="Username" required/>
+              </div>
+              <div className="form-group">
+                <select name="role" className="form-control form-control-lg" id="role" required>
+                  <option value="">Select Role</option>
+                  <option value="student">Student</option>
+                  <option value="faculty">Faculty</option>
+                </select>
               </div>
               <div className="form-group">
                 <input type="password" name="password" className="form-control form-control-lg" id="password" placeholder="Password" required />
@@ -43,12 +50,12 @@ const Login = () => {
                   <span className="custom-control-label">Remember Me</span>
                 </label>
               </div>
-              <button type="submit" className="btn btn-primary btn-lg btn-block">Login as Faculty</button>
+              <button type="submit" className="btn btn-primary btn-lg btn-block">Login</button>
             </form>
           </div>
           <div className="card-footer bg-white p-0 text-center">
             <div className="card-footer-item card-footer-item-bordered">
-              <Link to="/faculty/register" className="footer-link">Create faculty account</Link>
+              <Link to="/register" className="footer-link">Create an account</Link>
             </div>
             {/* <div className="card-footer-item card-footer-item-bordered">
               <a href="#" className="footer-link">Forgot Password</a>

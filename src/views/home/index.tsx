@@ -1,10 +1,10 @@
-import { prepareFormFields } from "../../../utils/helpers/common";
-import Footer from "../../common/partials/footer";
-import Header from "../../common/partials/header";
-import Sidebar from "../../common/partials/sidebar";
-import BreadCrumbWrapper from "../../common/wrappers/breadcrumb-wrapper";
-import ModalWrapper from "../../common/wrappers/modal-wrapper";
-import TinyMceWrapper from "../../common/wrappers/tinymce-wrapper";
+import { prepareFormFields } from "../../utils/helpers/common";
+import Footer from "../_common/partials/footer";
+import Header from "../_common/partials/header";
+import Sidebar from "../_common/partials/sidebar";
+import BreadCrumbWrapper from "../_common/wrappers/breadcrumb-wrapper";
+import ModalWrapper from "../_common/wrappers/modal-wrapper";
+import TinyMceWrapper from "../_common/wrappers/tinymce-wrapper";
 
 const Home = () => {
   const createForumPost = () => {
@@ -14,8 +14,8 @@ const Home = () => {
 
   return (
     <div className="dashboard-main-wrapper">
-      <Header type="faculty" />
-      <Sidebar type="faculty" />
+      <Header />
+      <Sidebar />
       <div className="dashboard-wrapper">
         <div className="container-fluid dashboard-content">
           <BreadCrumbWrapper

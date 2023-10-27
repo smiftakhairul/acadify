@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import useStorage from "../../../hooks/useStorage";
-import { prepareFormFields } from "../../../utils/helpers/common";
-import Footer from "../../common/partials/footer";
-import Header from "../../common/partials/header";
-import Sidebar from "../../common/partials/sidebar";
-import BreadCrumbWrapper from "../../common/wrappers/breadcrumb-wrapper";
-import ModalWrapper from "../../common/wrappers/modal-wrapper";
+import useStorage from "../../hooks/useStorage";
+import { prepareFormFields } from "../../utils/helpers/common";
+import Header from "../_common/partials/header";
+import Sidebar from "../_common/partials/sidebar";
+import BreadCrumbWrapper from "../_common/wrappers/breadcrumb-wrapper";
+import ModalWrapper from "../_common/wrappers/modal-wrapper";
+import Footer from "../_common/partials/footer";
 
 const Profile = () => {
   const storage = useStorage();
@@ -16,24 +16,24 @@ const Profile = () => {
   }, [])
 
   const updateProfile = () => {
-    const formData = prepareFormFields('editFacultyProfileForm');
+    const formData = prepareFormFields('editProfileForm');
     console.log(formData);
   }
 
   return (
     <div className="dashboard-main-wrapper">
-      <Header type="faculty" />
-      <Sidebar type="faculty" />
+      <Header />
+      <Sidebar />
       <div className="dashboard-wrapper">
         <div className="container-fluid dashboard-content">
           <BreadCrumbWrapper
             title="User Profile"
             items={[
-              {title: 'Home', link: '/faculty/home'},
+              {title: 'Home', link: '/home'},
               {title: 'Profile', active: true}
             ]}
           >
-            <button type="button" className="btn btn-primary btn-xs" data-toggle="modal" data-target="#editFacultyProfile">Edit Profile</button>
+            <button type="button" className="btn btn-primary btn-xs" data-toggle="modal" data-target="#editProfile">Edit Profile</button>
           </BreadCrumbWrapper>
 
           <div className="row">
@@ -109,6 +109,14 @@ const Profile = () => {
                         <td>{user.name}</td>
                       </tr>
                       <tr>
+                        <th>Username</th>
+                        <td>{user.username}</td>
+                      </tr>
+                      <tr>
+                        <th>Role</th>
+                        <td><span className="badge badge-success">{user.role}</span></td>
+                      </tr>
+                      <tr>
                         <th>Designation</th>
                         <td>{user.designation}</td>
                       </tr>
@@ -135,7 +143,7 @@ const Profile = () => {
           </div>
 
           <ModalWrapper
-            id="editFacultyProfile"
+            id="editProfile"
             largeModal={true}
             headerTitle="Update Profile"
             isForm={true}
