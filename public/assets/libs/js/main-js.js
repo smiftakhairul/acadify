@@ -2,6 +2,11 @@
 jQuery(document).ready(function($) {
     'use strict';
 
+    $(document).on('focusin', function(e) {
+        if ($(e.target).closest(".tox-textfield").length)
+            e.stopImmediatePropagation();
+});
+
     // ============================================================== 
     // Notification list
     // ============================================================== 

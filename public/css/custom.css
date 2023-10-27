@@ -4,3 +4,22 @@
   justify-content: center;
   height: 100vh;
 }
+.bootstrap-tagsinput {
+  padding: 6px 6px;
+  border-radius: 2px;
+  line-height: 1.42857143;
+}
+.bootstrap-tagsinput .badge {
+  margin-right: 1px;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 0;
+}
+.card-img-top {
+  object-fit: cover;
+}
+
+.profile-table tbody tr:first-child th,
+.profile-table tbody tr:first-child td {
+  border-top: none !important;
+}

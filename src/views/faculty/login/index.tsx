@@ -1,6 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { prepareFormFields } from "../../../utils/helpers/common";
+import useApi from "../../../hooks/useApi";
+import useNotification from "../../../hooks/useNotification";
 
 const Login = () => {
+  const api = useApi();
+  const navigate = useNavigate();
+  const notification = useNotification();
+
+  const submitLogin = (e: any) => {
+    e.preventDefault();
+    const formData = prepareFormFields('facultyLoginForm');
+    api
+      .facultyLogin(formData)
+      .then(res => {
+        notification.success('Successfully logged in!');
+        navigate('/faculty/home');
+      });
+  }
+
   return (
     <div className="acadify-wrapper-v-center">
       <div className="splash-container">
@@ -12,16 +30,16 @@ const Login = () => {
             <span className="splash-description">Please enter your information.</span>
           </div>
           <div className="card-body">
-            <form>
+            <form id="facultyLoginForm" onSubmit={(e) => submitLogin(e)}>
               <div className="form-group">
-                <input className="form-control form-control-lg" id="username" type="text" placeholder="Username" autoComplete="off" />
+                <input type="text" name="username" className="form-control form-control-lg" id="username" placeholder="Username" required/>
               </div>
               <div className="form-group">
-                <input className="form-control form-control-lg" id="password" type="password" placeholder="Password" />
+                <input type="password" name="password" className="form-control form-control-lg" id="password" placeholder="Password" required />
               </div>
               <div className="form-group">
                 <label className="custom-control custom-checkbox">
-                  <input className="custom-control-input" type="checkbox" />
+                  <input type="checkbox" name="remember" className="custom-control-input" />
                   <span className="custom-control-label">Remember Me</span>
                 </label>
               </div>

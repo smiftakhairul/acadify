@@ -14,6 +14,9 @@ const Register = () => {
           <div className="card-body">
             <form>
               <div className="form-group">
+                <input type="text" name="name" className="form-control form-control-lg" id="name" placeholder="Full Name" required />
+              </div>
+              <div className="form-group">
                 <input className="form-control form-control-lg" id="username" type="text" placeholder="Username" autoComplete="off" />
               </div>
               <div className="form-group">

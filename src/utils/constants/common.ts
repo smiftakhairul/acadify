@@ -2,7 +2,7 @@ export const env = import.meta.env;
 
 export const defaultToastrConfig = {
   toastId: "acadifyDefaultToast",
-  position: "top-center",
+  position: "top-right",
   autoClose: 5000,
   // autoClose: false,
   hideProgressBar: false,
