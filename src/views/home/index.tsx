@@ -4,7 +4,6 @@ import Header from "../_common/partials/header";
 import Sidebar from "../_common/partials/sidebar";
 import BreadCrumbWrapper from "../_common/wrappers/breadcrumb-wrapper";
 import ModalWrapper from "../_common/wrappers/modal-wrapper";
-import TinyMceWrapper from "../_common/wrappers/tinymce-wrapper";
 
 const Home = () => {
   const createForumPost = () => {
@@ -77,7 +76,8 @@ const Home = () => {
             isForm={true}
             onFormSubmit={() => createForumPost()}
           >
-            <TinyMceWrapper name="description" />
+            {/* <TinyMceWrapper name="description" /> */}
+            <textarea name="description" id="description" className="form-control" cols={30} rows={5}></textarea>
             <div className="form-group mt-2 mb-0">
               <label htmlFor="tags">Tags</label>
               <input type="text" name="tags" className="form-control" id="tags" data-role="tagsinput" />

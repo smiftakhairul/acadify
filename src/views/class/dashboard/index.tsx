@@ -5,7 +5,6 @@ import Header from "../../_common/partials/header";
 import Sidebar from "../../_common/partials/sidebar";
 import BreadCrumbWrapper from "../../_common/wrappers/breadcrumb-wrapper";
 import ModalWrapper from "../../_common/wrappers/modal-wrapper";
-import TinyMceWrapper from "../../_common/wrappers/tinymce-wrapper";
 import ClassInfo from "../_partials/info";
 import ClassLinks from "../_partials/links";
 
@@ -120,7 +119,8 @@ const Dashboard = () => {
               <div className="col-md-12">
                 <div className="form-group">
                   <label htmlFor="description">Description</label>
-                  <TinyMceWrapper name="description" />
+                  <textarea name="description" id="description" className="form-control" cols={30} rows={5}></textarea>
+                  {/* <TinyMceWrapper name="description" /> */}
                 </div>
                 <div className="form-group">
                   <label htmlFor="attachments">Attachments</label>
