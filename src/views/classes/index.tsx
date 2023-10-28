@@ -64,7 +64,7 @@ const Classes = () => {
                         <div className="col-md-6">
                           <div className="mt-1">
                             <span className="badge badge-secondary mr-1">js</span>
-                            <span className="badge badge-secondary mr-1">javascript</span>
+                            <span className="badge badge-secondary">javascript</span>
                           </div>
                         </div>
                         <div className="col-md-3 text-right">
@@ -137,7 +137,7 @@ const Classes = () => {
                         <div className="col-md-6">
                           <div className="mt-1">
                             <span className="badge badge-secondary mr-1">php</span>
-                            <span className="badge badge-secondary mr-1">laravel</span>
+                            <span className="badge badge-secondary">laravel</span>
                           </div>
                         </div>
                         <div className="col-md-3 text-right">
@@ -169,7 +169,7 @@ const Classes = () => {
                         <div className="col-md-6">
                           <div className="mt-1">
                             <span className="badge badge-secondary mr-1">python</span>
-                            <span className="badge badge-secondary mr-1">django</span>
+                            <span className="badge badge-secondary">django</span>
                           </div>
                         </div>
                         <div className="col-md-3 text-right">

@@ -5,6 +5,10 @@ import Home from "./views/home"
 import Profile from "./views/profile"
 import NotFound from "./views/not-found"
 import Classes from "./views/classes"
+import Class from "./views/class"
+import Dashboard from "./views/class/dashboard"
+import Materials from "./views/class/materials"
+import Grades from "./views/class/grades"
 
 function App() {
   return (
@@ -16,6 +20,11 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="profile" element={<Profile />} />
           <Route path="classes" element={<Classes />} />
+          <Route path="class/:slug" element={<Class />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="materials" element={<Materials />} />
+            <Route path="grades" element={<Grades />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

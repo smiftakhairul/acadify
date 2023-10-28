@@ -44,7 +44,7 @@ const Home = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, corrupti est. Iure laudantium quos consequatur cupiditate quo ipsam, non corrupti! Ducimus aut dolores aperiam dicta eligendi dolore, dignissimos inventore officiis.
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas placeat voluptatibus quas quaerat quod voluptate vero quis temporibus unde illum, a inventore officia quae at nam optio labore, maxime cupiditate!
                   </p>
-                  <a href="#" className="btn btn-primary btn-xs">View Details</a>
+                  {/* <a href="#" className="btn btn-primary btn-xs">View Details</a> */}
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@ const Home = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, corrupti est. Iure laudantium quos consequatur cupiditate quo ipsam, non corrupti! Ducimus aut dolores aperiam dicta eligendi dolore, dignissimos inventore officiis.
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas placeat voluptatibus quas quaerat quod voluptate vero quis temporibus unde illum, a inventore officia quae at nam optio labore, maxime cupiditate!
                   </p>
-                  <a href="#" className="btn btn-primary btn-xs">View Details</a>
+                  {/* <a href="#" className="btn btn-primary btn-xs">View Details</a> */}
                 </div>
               </div>
             </div>
